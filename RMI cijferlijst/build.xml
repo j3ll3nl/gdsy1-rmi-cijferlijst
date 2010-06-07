@@ -1,0 +1,23 @@
+<project name="RMI cijferlijst" basedir="." default="jar" >
+            
+  <target name="jar">
+    <delete file="html/MyJApplet.jar"/>
+    <jar destfile="html/MyJApplet.jar">
+      <fileset dir="classes" excludes="gdsy/cijferlijst/server/, gdsy/cijferlijst/server/gui"/>
+      <manifest>
+        <attribute name="Build-By" value="${user.name}"/>
+      </manifest>
+    </jar>
+    
+    <delete file="run/Cijferlijst.jar"/>
+    <jar destfile="run/Cijferlijst.jar">
+      <fileset dir="classes" excludes="gdsy/cijferlijst/client/"/>
+      <manifest>
+ 	    <attribute name="Main-Class" value="gdsy.cijferlijst.server.Main"/>
+        <attribute name="Build-By" value="${user.name}"/>
+      </manifest>
+    </jar>
+    
+  </target>
+  
+</project>
