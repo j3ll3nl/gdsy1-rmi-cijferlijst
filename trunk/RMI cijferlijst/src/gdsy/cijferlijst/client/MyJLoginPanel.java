@@ -5,8 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
-class MyJLoginPanel
-extends MyJTitlePanel
+class MyJLoginPanel extends MyJTitlePanel
 {
   private static final long serialVersionUID = 1L;
   private boolean debug = false;
@@ -19,7 +18,7 @@ extends MyJTitlePanel
   
   MyJLoginPanel(int width, int height, ActionListener al)
   {
-    super(width, height);
+    super(true, width, height);
     if (debug) System.out.println("MyJLoginPanel("+width+", "+", "+height+", "+al.getClass().getName()+")"); 
     init(al);
   }
@@ -27,8 +26,9 @@ extends MyJTitlePanel
   private void init(ActionListener al)
   {
     if (debug) System.out.println("MyJLoginPanel.init("+al.getClass().getName()+")"); 
+    setTitle("Welcome: type a username + enter");
     setName(C.login);
-    add(new MyJLabel("please login", JLabel.CENTER, new Rectangle(sx    , sy    , sw    , 30)));   
+    //add(new MyJLabel("please login", JLabel.CENTER, new Rectangle(sx    , sy    , sw    , 30)));   
     add(new MyJLabel("username"    , JLabel.CENTER, new Rectangle(sx    , sy+ 40,    100, 20)));
     add(new MyJTextField(                           new Rectangle(sx+100, sy+ 40, sw-100, 20)));
     add(new MyJLabel("password"    , JLabel.CENTER, new Rectangle(sx    , sy+ 70,    100, 20)));
